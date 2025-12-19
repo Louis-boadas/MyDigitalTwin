@@ -25,6 +25,8 @@ graph LR
     D -->|GPT-4o Profiling| E[(SQLite DB)]
     E -->|Context & Memory| F[FastAPI Server]
     F -->|Response| G[User / WhatsApp / Insta]
+```
+
 --- 
 
 ## 🚀 Key Features

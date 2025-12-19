@@ -79,37 +79,35 @@ Leveraging **GPT-4o**, the system constructs a comprehensive "File Dossier" (JSO
 
 ## ⚙️ Configuration
 
-Créez un fichier `.env` à la racine du projet pour stocker vos clés d'API et vos paramètres :
+Create a `.env` file at the root of the project to store your API keys and parameters:
 
 ```env
-OPENAI_API_KEY=votre_cle_ici
+OPENAI_API_KEY=your_api_key_here
 DB_PATH=app.db
 ```
 ---
 
 
-## 🚀 Initialisation
+## 🚀 Initialization
 
-Avant de lancer le serveur, vous devez préparer les données et générer les profils psychologiques :
+Before launching the server, you must prepare the data and generate the psychological profiles:
 
-```bash
-# 1. Nettoyage et préparation des dossiers de données
+```
+# 1. Clean and prepare data directories
 python clean_data.py
 
-# 2. Transcription des audios et création du "Brain" (Profils JSON)
+# 2. Transcribe audio files and build the "Brain" (JSON Profiles)
 python analyze_brain.py
+
 ```
 ---
 
-## 💻 Lancement
-
-Une fois l'initialisation terminée, lancez le backend FastAPI :
-```
-```bash
+### 💻 Launch
+```markdown
+Once initialization is complete, start the FastAPI backend:
 python main.py
-L'API sera disponible sur http://127.0.0.1:8000. Vous pouvez consulter la documentation interactive (Swagger) sur /docs.
 ```
-
+The API will be live at http://127.0.0.1:8000. You can access the interactive documentation (Swagger UI) at /docs
 ---
 
 

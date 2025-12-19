@@ -107,7 +107,9 @@ python analyze_brain.py
 Once initialization is complete, start the FastAPI backend:
 python main.py
 ```
+
 The API will be live at http://127.0.0.1:8000. You can access the interactive documentation (Swagger UI) at /docs
+
 ---
 
 

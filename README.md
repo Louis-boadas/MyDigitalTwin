@@ -29,21 +29,22 @@ graph LR
 
 --- 
 
-### 🚀 Key Features
 
-1. Hybrid "Social OS" Engine (Text + Audio)
-The core intelligence (analyze_brain.py) doesn't just read text; it listens.
+## 🚀 Key Features
 
-Audio Transcription: The transcribe_manager.py module detects <audio> tags in Instagram exports, hunts down the file on the disk (handling complex pathing issues), and transcribes it using OpenAI Whisper-1.
+**1. Hybrid "Social OS" Engine (Text + Audio)**
+The core intelligence (`analyze_brain.py`) goes beyond simple text processing—it actually "listens" to your digital history.
 
-Smart Caching: To save costs and time, transcriptions are hashed and cached in a dedicated SQL table (audio_transcriptions).
+* **Advanced Audio Transcription:** The `transcribe_manager.py` module automatically identifies `<audio>` tags within Instagram exports. It resolves complex local file paths to locate recordings and transcribes them using **OpenAI Whisper-1**.
+* **Smart Caching System:** To minimize API costs and latency, transcriptions are hashed and stored in a dedicated `audio_transcriptions` SQL table, ensuring no file is processed twice.
 
-2. Psychological Profiling (The "Brain")
-Using GPT-4o, the system generates a "File Dossier" (JSON) for each contact. This ensures the bot remembers who it is talking to.
+**2. Psychological Profiling (The "Brain")**
+Leveraging **GPT-4o**, the system constructs a comprehensive "File Dossier" (JSON) for every contact. This persistent memory allows the bot to maintain deep contextual awareness of who it is interacting with.
 
 
-Real Example of a generated Profile:
+**Real Example of a generated Profile:**
 
+```json
 {
   "identity": {
     "nickname": "Sarah 🎨",
@@ -71,84 +72,52 @@ Real Example of a generated Profile:
   }
 }
 
+```
+
 [See profil_social_os_example.json for full structure]
 
 
-3. Data Engineering & Governance
-ETL Pipeline: The clean_data.py script acts as a garbage collector. It syncs the local storage with the valid contacts in the database, automatically purging unknown data while preserving "Exception" folders (VIPs).
+## ⚙️ Configuration
 
-Safety Guardrails: A Tier-Based System strictly controls the bot's language.
+Créez un fichier `.env` à la racine du projet pour stocker vos clés d'API et vos paramètres :
 
-Tier 1 (VIP): Authorized to use slang ("mdr", "wsh", "frèro") and vulgarity.
-
-Tier 3 (Pro): Forced into a formal, polite communication protocol.
-
----
-
-## 🛠️ Technical Stack
-Core Logic: Python 3.9+
-
-API Framework: FastAPI, Uvicorn.
-
-AI Models:
-
-LLM: GPT-4o (Contextual analysis & generation).
-
-ASR: Whisper-1 (Audio-to-Text).
-
-Database: SQLite via SQLAlchemy (ORM).
-
-Data Processing: BeautifulSoup4 (HTML Parsing), Regex.
-
----
-
-## 📦 Installation & Setup
-1. Prerequisites
-Ensure you have Python 3.9+ installed.
-
-2. Clone & Install
-
-//
-git clone [https://github.com/your-username/my-digital-twin.git](https://github.com/your-username/my-digital-twin.git)
-cd my-digital-twin
-pip install -r requirements.txt
-//
-
-3. Configuration
-Create a .env file at the root:
-//
-OPENAI_API_KEY=sk-proj-your-key-here
+```env
+OPENAI_API_KEY=votre_cle_ici
 DB_PATH=app.db
-//
+```
+---
 
-4. Initialize & Analyze
-First, run the analysis pipeline to build the database and profiles://
-//
-# 1. Clean data folder
+
+## 🚀 Initialisation
+
+Avant de lancer le serveur, vous devez préparer les données et générer les profils psychologiques :
+
+```bash
+# 1. Nettoyage et préparation des dossiers de données
 python clean_data.py
 
-# 2. Transcribe audio & Build Profiles
+# 2. Transcription des audios et création du "Brain" (Profils JSON)
 python analyze_brain.py
-//
-5. Run the Server
-Launch the FastAPI backend:
-//
+```
+---
+
+## 💻 Lancement
+
+Une fois l'initialisation terminée, lancez le backend FastAPI :
+```
+```bash
 python main.py
-# OR directly via Uvicorn
-uvicorn app.main:app --reload
+L'API sera disponible sur http://127.0.0.1:8000. Vous pouvez consulter la documentation interactive (Swagger) sur /docs.
+```
 
-//
+---
 
-The API will be available at http://127.0.0.1:8000 with Swagger documentation at /docs.
 
-## 🔒 Ethical Considerations
-This project implements strict "Human-in-the-loop" protocols:
+## 🔒 Ethics & Security
 
-Sensitive Topic Detection: The bot halts if a topic from the sensitive_topics list is detected.
+This project incorporates strict security protocols:
 
-No Impersonation for Harm: The goal is to manage time, not to deceive.
-
-Local Data: All personal messages are processed locally or via secure API, with no third-party training.
-
+* **Sensitive Topic Detection:** The bot automatically halts if a topic listed in the profile's `sensitive_topics` is detected.
+* **
 ##📝 License
 This project is for personal research and educational purposes.

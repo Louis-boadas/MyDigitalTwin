@@ -29,7 +29,7 @@ graph LR
 
 --- 
 
-## 🚀 Key Features
+### 🚀 Key Features
 
 1. Hybrid "Social OS" Engine (Text + Audio)
 The core intelligence (analyze_brain.py) doesn't just read text; it listens.

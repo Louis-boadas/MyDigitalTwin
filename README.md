@@ -26,7 +26,7 @@ graph LR
     E -->|Context & Memory| F[FastAPI Server]
     F -->|Response| G[User / WhatsApp / Insta]
 ```
-[MORE INFO](
+[About Architecture](ARCHITECTURE.md)
 --- 
 
 

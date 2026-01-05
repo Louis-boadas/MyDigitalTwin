@@ -112,6 +112,8 @@ The API will be live at http://127.0.0.1:8000. You can access the interactive do
 
 ---
 
+### 🧪 Testing with Mock Data
+To test the analysis pipeline without using your own private data, use the provided samples:
 
 ## 🔒 Ethics & Security
 

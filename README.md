@@ -121,5 +121,6 @@ This project incorporates strict security protocols:
 
 * **Sensitive Topic Detection:** The bot automatically halts if a topic listed in the profile's `sensitive_topics` is detected.
 * **
-##📝 License
+
+## 📝 License
 This project is for personal research and educational purposes.
